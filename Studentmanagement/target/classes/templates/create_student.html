@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<title>Student management</title>
+<style>
+body {
+            height: 100vh;
+            margin: 0%;
+            display: grid;
+            
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(54, 98, 143, 0.9), rgba(10, 104, 106, 0.9), rgba(37, 198, 61, 0.9), rgba(193, 105, 47, 0.9), rgba(74, 21, 199, 0.9));
+            animation: gradient 15s ease infinite;
+            background-size: 500% 500%;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+
+        }
+        .navbar{
+    height:5rem;
+} 
+
+</style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark" >
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Student management system</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/students}">student management</a>
+      </li>
+       
+    </ul>
+  </div>
+</nav>
+
+
+ <div class="container ">
+ <div class="row">
+ <div class="col-lg-6 col-sm-6 col-md-6 container justify-content-center card  bg-warning">
+ <h1 class="text-center">Create new student</h1>
+ <div class="card-body">
+ <form th:action="@{/savestudents}" th:object="${student}" method="POST">
+ <div class="form-group">
+ <label>student first name</label>
+<input
+type="text"
+name="firstName"
+th:field="*{firstname}"
+class="form-control"
+placeholder="enter your first name"
+required="required"
+> 
+ </div>
+
+ <div class="form-group">
+ <label>student last name</label>
+<input
+type="text"
+name="lastName"
+th:field="*{lastname}"
+class="form-control"
+placeholder="enter your last name"
+required="required"
+> 
+ </div>
+ 
+  <div class="form-group">
+ <label>student email</label>
+<input
+type="text"
+name="email"
+th:field="*{email}"
+class="form-control"
+placeholder="enter your email"
+> 
+ </div>
+ 
+ <div class="box-footer">
+ <button type="submit" class="btn btn-primary">Submit</button>
+ </div>
+ 
+ </form>
+ </div>
+ </div>
+ </div>
+ </div>
+</body>
+</html>
